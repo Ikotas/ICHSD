@@ -45,7 +45,8 @@ u = match to next field
         int "cr1f", int "cr1t", int "cr2f", int "cr2t", int "cr3f", int "cr3t",
         int "cr4f", int "cr4t", int "cr5f", int "cr5t", bool "show", int "ml",
         bool "ulp", int "suby")
-<br>
+<div style="padding-left:60px;">
+</div>
 
     cr       片フィールド字幕と残留縞(Combs)の処理方法を選択。
              deint(インターレース解除)はTFM(pp=3)で実行。
