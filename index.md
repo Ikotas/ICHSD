@@ -3,7 +3,7 @@
 ([English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en)) <span style="font-size:80%;">by Google Translate</span>
 
 #### はじめに：
-<div style=padding-left:20px;>
+<div style="padding-left:20px;">
 
 埋め込み字幕(Hardsub)を含むインターレースソースをDecimationするために、問題点(後述)を解消して整えるスクリプトです。<br>
 対応するインターレースソースは、23.976fpsを29.97fpsへテレシネした、PIIPP (プログレッシブ3枚、インターレース2枚の繰り返し、TFMでのフィールドマッチング後のMatch Codesの並びは cppcc )のパターンのみです。<br>
@@ -28,13 +28,14 @@
 5. 自動処理後に更に残留する縞(Combs)を手動で処理する手段の提供
 </b>
 
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 
 *1…除去処理自体はCombReduceまたはインターレース解除で実施<br>
 *2…TFM(TIVTC)の用語、本プラグインでは以下を使用(`mode=2`)
 </div>
 
-<div style=padding-left:60px>
+<div style="padding-left:60px;">
+
 p = match to previous field<br>
 c = match to current field<br>
 u = match to next field
@@ -42,14 +43,14 @@ u = match to next field
 
 
 #### Syntax and Parameters：
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 
     ICHSD(clip input, int "cr", float "ythresh", int "mthresh", bool "manual",
         int "cr1f", int "cr1t", int "cr2f", int "cr2t", int "cr3f", int "cr3t",
         int "cr4f", int "cr4t", int "cr5f", int "cr5t", bool "show", int "ml",
         bool "ulp", int "suby")
 </div>
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 
     cr       片フィールド字幕と残留縞(Combs)の処理方法を選択。
              deint(インターレース解除)はTFM(pp=3)で実行。
@@ -161,7 +162,7 @@ u = match to next field
 
 * 使用する判定基準  
 
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 
 1. パターンマッチ  
    事項で説明
@@ -186,7 +187,7 @@ ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に�
 
 </div>
 
-<div style=padding-left:40px>
+<div style="padding-left:40px;">
 
 *Mic値…TFM用語、指定した大きさ(本スクリプトでは`blockx=64,blocky=64`)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？
 
@@ -200,7 +201,7 @@ ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に�
    本スクリプトが対象とするインターレースソースの5フレーム毎のMatch Codesの配置は、原則以下のパターンの何れかです。  
 
 </div>
-<div style=padding-left:80px>
+<div style="padding-left:80px;">
 
 ppccc  
 cppcc  
@@ -209,7 +210,7 @@ cccpp
 pcccp  
 
 </div>
-<div style=padding-left:28px>
+<div style="padding-left:28px;">
 
 しかし、実際には、カット編集・CM分断による周期変化や29.97fpsのシーンやTFMのフィールドマッチング処理等の要因により、様々な配置パターンとなります。  
 単純にはMatch Codeの特定はできないため、複数のパターンマッチを用いて、精度を高めています。
@@ -218,7 +219,7 @@ pcccp
 
 * 使用するパターンマッチ
 
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 
 1. 現在のフレームの前後2個ずつMatch Codeを確認  
    前後のフレームのMatch Codeを確認し、上記の原則の配置に当てはめることで、現在のフレームのMatch Codeを推測します。  
@@ -226,7 +227,7 @@ pcccp
    c と推測される場合は、隣接するフレームが p の場合は基本的に2.に進み、隣接するフレームがどちらも c の場合は3.に進みます。  
 
 </div>
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 
 2. 現在のフレームの前後最大31フレーム先まで pp の並びを確認  
    前方後方のppの配置をパターンと照合して、現在のフレームのMatch Codeを決定します。  
@@ -240,7 +241,7 @@ pcccp
 
 </div>
 
-<div style=padding-left:40px>
+<div style="padding-left:40px;">
 
 <u>[ICHSD_patternlist.txt](https://github.com/Ikotas/ICHSD/raw/main/ICHSD_patternlist.txt)</u>  
 c/p の並びを記載したパターンリスト
@@ -290,7 +291,7 @@ c/p の並びを記載したパターンリスト
   - masktools2.dll
   - TDeint.dll
   - TMM2.dll  
-<p style=padding-left:34px>
+<p style="padding-left:34px;">
 本プラグインでは縞(Combs)の有無の判定にも使用
 </p>
 
@@ -307,13 +308,13 @@ c/p の並びを記載したパターンリスト
 
 - [ICHSD_patternlist.txt](https://github.com/Ikotas/ICHSD/raw/main/ICHSD_patternlist.txt)
 
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 ※<b>初めにスクリプト内のファイルパスを環境に合わせて書き換える必要があります。</b>
 </div>
 
 
 #### Decimationを実行するプラグイン：
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 ※本スクリプトには含まれません。<br>
 <br>
 特に指定はありませんが、現環境ですと選択肢は少ないため、実質TDecimate一択かと思います。<br>
@@ -327,7 +328,7 @@ c/p の並びを記載したパターンリスト
 </div>
 
 #### その他おすすめスクリプト：
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
 ※本スクリプトには含まれません。<br><br>
 </div>
 
@@ -340,7 +341,7 @@ c/p の並びを記載したパターンリスト
   - variableblur.dll
   - warpsharp.dll  
 
-<div style=padding-left:20px>
+<div style="padding-left:20px;">
   ※現在のAviSynthではConditionalFilterの箇所が要因で動作しないため修正が必要(改良版含む)<br>
 　修正情報自体は転載禁止のため、使用する場合はご自分で探して適用してください。<br>
 <br>
