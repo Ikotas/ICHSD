@@ -155,14 +155,17 @@ u = match to next field
     閾値をなるべく使用せずに済む判定基準を使用することで、閾値の使用を2個(`ythresh`,`mthresh`)までに抑えています。  
 
 * 使用する判定基準  
-
 <div style="padding-left:20px;">
+<ol>
 
-1. パターンマッチ  
-   事項で説明
+<li>パターンマッチ</li>  
+    事項で説明
 
-2. `LumaDifference(base,base.Loop(n+1,0,-1).Trim(0,FrameCount()-1))<ythresh`  
-3. `LumaDifference(base,base.Trim(n,0).Loop(n+1,FrameCount()-1,-1))<ythresh`  
+<li><code>LumaDifference(base,base.Loop(n+1,0,-1).Trim(0,FrameCount()-1))&lt;ythresh</code></li>  
+
+</ol>
+
+3. `LumaDifference(base,base.Trim(n,0).Loop(n+1,FrameCount()-1,-1))&lt;ythresh`  
    現在表示しているフレームと、n個前方(2.)または後方(3.)のフレームを比較し、シーンチェンジがないかを確認。  
    パターンマッチで使用します。  
    シーンチェンジがなければパターンに適合、あれば不適合としています。
