@@ -1,0 +1,99 @@
+ICHSDをAmatsukazeで動かす方法
+
+！ご注意事項！
+
+　本テキストは、私が公開したスクリプト ICHSD のおまけです。
+　私の手元のPCで試した情報の共有を目的としています。
+　私の環境で動作する情報を記載しているだけですので、
+　他環境での動作は何も保証しません。
+　また、この粒度で伝わる方向けの情報です。
+　本編のスクリプトには直接関係ないため、
+　本テキストの内容に関してのissuesへの質問は原則お断りしますので、
+　ご了承願います。(情報のご提供は歓迎します。)
+　動作しない場合はご自分で解決してください。
+　特に、Amatsukazeの意図していない使用方法のため、
+　rigayaさんへの質問は絶対に行わないようお願いします。
+
+動作方法概要
+　Amatsukaze 0.9.8.3で実装したエンコード前バッチ機能を利用して、
+　CMカット＋ロゴ削除したソースを、最新のAviSynthを使用してエンコードする。
+
+必須バージョン
+　Amatsukaze 0.9.8.3以降 (https://github.com/rigaya/Amatsukaze)
+　AviSynth+ v3.7.1以降 (https://github.com/pinterf/AviSynthPlus)
+
+前提
+　Amatsukazeのプロファイルのフィルタ設定はカスタムフィルタを設定します。
+　カスタムフィルタに設定するavsファイルの内容は自由です。
+　私の公開したスクリプト ICHSD はこのavsファイル内で指定してください。
+　プロファイルの設定で、「一時ファイルを削除せずに残す」にチェックしておくと、
+　動作確認が楽になります。
+　なお、AviSynth Neoではなく、AviSynth Plusを使用するため、
+　CUDA関連のプラグインやコマンドは一切動作しません。(エラーで落ちます。)
+　KFMDeintやOnCUDAやその他CUDA Filtersは全て動作しません。
+
+準備
+　エンコーダーの実行ファイルと同じフォルダにあるAviSynth.dllが使用されるため、
+　Amatsukazeとは異なるフォルダにエンコーダーとAviSynth.dllを配置します。
+
+エンコード前バッチ処理概要
+　1. Amatsukazeの一時フォルダに作成された「vfilter0-0-0-main.avs」を改変する。
+
+　   改変内容
+　     ①ファイルパスの区切り文字が"\"と"/"と混在しているので"/"に統一する。
+　     ②先頭2行があると落ちるのでコメントアウトする。
+　         1行目：ClearAutoloadDirs()
+　         2行目：AddAutoloadDir～
+　       ※1行目は気分で、実際は2行目だけでOK
+　     ③Shift-JISからUTF-8へ変換する。
+　       ※エンコーダーによってはShift-JISは受け付け不可のため
+
+　2. Amatsukazeはffmpegからパイプ(|)でエンコーダーに処理を渡しているが、
+　   AviSynth Neo以外ではエラーとなるため、エンコーダーで直接実行する。
+　   そのため、avsファイルを直接読み込めるエンコーダーが必須。
+
+　   私はx264でエンコードしており、
+　   標準だとエラーとなる10bitカラーを受付可能なx264-Patman.exeを使用します。
+　   ※x264はavsファイルの読み込みを標準で対応している。
+　   その他のエンコーダーについては、ご自分で調べてください。
+
+　3. エンコード完了してバッチ処理の終了後、
+　   Amatsukaze側のエンコードが始まることになるため、
+　   バッチファイルの最後にtaskkillで強制終了する。
+
+注意点
+　・Amatsukazeとしてはバッチファイルに処理を渡したまま終了したことになるため、
+　  エラーとして赤く表示されます。
+　・Amatsukazeの外で処理するため、Amatsukazeのlogファイルには何も残りません。
+
+バッチファイルサンプル
+　※Amatsukazeの環境変数
+　  (https://rigaya34589.blog.fc2.com/blog-entry-1928.html)
+　※改変後のvfilter0-0-0-main_.avsをAvsPmodで読んで動画を表示できればOK、
+　  動画を表示できずに落ちればカスタムフィルタ含め見直しが必要です。
+　※上手く動作しない場合はご自分で解決してください。
+
+エンコード前_xxx.bat
+----------
+@echo off
+
+set tmpavsorg=%AMT_TEMP_DIR%\vfilter0-0-0-main.avs%
+set tmpavs=%AMT_TEMP_DIR%\vfilter0-0-0-main_.avs%
+
+【PATH】sed-4.9-x64.exe -i "s/\\/\//g" "%tmpavsorg%"
+【PATH】sed-4.9-x64.exe -i "s/ClearAutoloadDirs()/# ClearAutoloadDirs()/g" "%tmpavsorg%"
+【PATH】sed-4.9-x64.exe -i "s/AddAutoloadDir(/# AddAutoloadDir(/g" "%tmpavsorg%"
+
+【PATH】iconv.exe -f SHIFT-JIS -t UTF-8 "%tmpavsorg%">"%tmpavs%"
+
+【PATH】x264-Patman.exe --colorprim bt709 --transfer bt709 --colormatrix bt709 --profile high10 【中略、Amatsukazeの通常logから必要部分を使用】 -o "%AMT_TEMP_VIDEO%" --stitchable "%tmpavs%"
+
+【PATH】mkvmerge.exe --chapters "%AMT_TEMP_CHAPTER%" -o "【出力ファイル】" --default-duration "0:30000/1001fps"【←出力するFPSを指定】 "%AMT_TEMP_VIDEO%" "%AMT_TEMP_AUDIO%"
+
+taskkill /F /IM AmatsukazeCLI.exe
+----------
+※ご参考
+sed-windows
+(https://github.com/mbuilov/sed-windows)
+iconv and gettext binaries for Windows
+(https://github.com/mlocati/gettext-iconv-windows)
