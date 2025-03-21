@@ -180,14 +180,15 @@ u = match to next field
 ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に従い、CombReduce適用かインターレース解除を行います。<br>  
 
 </ol></ol></div>
-<div style="padding-left:40px;">
+<div style="padding-left:34px;">
 
 *Mic値…TFM用語、指定した大きさ(本スクリプトでは<code>blockx=64,blocky=64</code>)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？<br>
 
-<u>[ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)</u>、<u>[ovrp.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt)</u>  
-    TFMのovr用ファイル<br>  
-
 </div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>[ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)</u>、<u>[ovrp.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt)</u>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TFMのovr用ファイル<br>  
+
 
 4. **パターンマッチによる判定**
 
