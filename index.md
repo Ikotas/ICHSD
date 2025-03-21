@@ -180,11 +180,10 @@ u = match to next field
 ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に従い、CombReduce適用かインターレース解除を行います。<br>  
 
 </ol></ol></div>
-
 <div style="padding-left:40px;">
 
-*Mic値…TFM用語、指定した大きさ(本スクリプトでは`blockx=64,blocky=64`)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？<br>
-<br>
+*Mic値…TFM用語、指定した大きさ(本スクリプトでは<code>blockx=64,blocky=64</code>)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？<br>
+
 <u>[ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)</u>、<u>[ovrp.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt)</u>  
     TFMのovr用ファイル<br>  
 
@@ -194,7 +193,6 @@ ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に�
 
    本スクリプトが対象とするインターレースソースの5フレーム毎のMatch Codesの配置は、原則以下のパターンの何れかです。  
 
-</div>
 <div style="padding-left:80px;">
 
 ppccc  
