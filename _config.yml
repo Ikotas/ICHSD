@@ -1,5 +1,8 @@
-title: Slate theme
-description: Slate is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
+title: ICHSD - Clean up the Hardsub Sources for Decimation
+# logo: /assets/img/logo.png
+description: ICHSD is a script for AviSynth that cleans up the hardsub sources for decimation.
+show_downloads: false
+google_analytics: G-KN10NJENYF
 theme: jekyll-theme-slate
+timezone: Asia/Tokyo
+date_format: "%Y-%m-%d"
