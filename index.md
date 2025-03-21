@@ -19,19 +19,19 @@
 
 1. Decimationで確実に間引かれるための、重複フレームの片方を複製し、もう片方を上書きして置き換える処理
 
-2. 片フィールド字幕の除去(*1) (処理方法を選択可)
+2. 片フィールド字幕の除去(\*1) (処理方法を選択可)
 
-3. パターンマッチによるMatch Code(*2)判定
+3. パターンマッチによるMatch Code(\*2)判定
 
-4. 縞(Combs)部分の自動除去処理(*1) (処理方法を選択可)
+4. 縞(Combs)部分の自動除去処理(\*1) (処理方法を選択可)
 
 5. 自動処理後に更に残留する縞(Combs)を手動で処理する手段の提供
 </b>
 
 <div style="padding-left:20px;">
 
-*1…除去処理自体はCombReduceまたはインターレース解除で実施<br>
-*2…TFM(TIVTC)の用語、本プラグインでは以下を使用(`mode=2`)
+\*1…除去処理自体はCombReduceまたはインターレース解除で実施<br>
+\*2…TFM(TIVTC)の用語、本プラグインでは以下を使用(`mode=2`)
 </div>
 
 <div style="padding-left:60px;">
@@ -178,7 +178,7 @@ u = match to next field
    シーンチェンジがあれば、5.に進み、なければ6.に進みます。  
 
 5. `propGetInt(ovr(p/c),"TFMMics",index=(0/1))>mthresh`  
-   現在のフレームのMic値(*)を取得し、インターレース解除を行うかを確認。  
+   現在のフレームのMic値(\*)を取得し、インターレース解除を行うかを確認。  
    閾値超はインターレース解除、閾値以下は6.に進みます。  
 
 6. `LumaDifference(ovr(p/c),ovr(p/c).CombReduce())`  
@@ -189,7 +189,7 @@ ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に�
 
 <div style="padding-left:40px;">
 
-*Mic値…TFM用語、指定した大きさ(本スクリプトでは`blockx=64,blocky=64`)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？
+\*Mic値…TFM用語、指定した大きさ(本スクリプトでは`blockx=64,blocky=64`)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？
 
 <u>[ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)</u>、<u>[ovrp.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt)</u>  
     TFMのovr用ファイル  
