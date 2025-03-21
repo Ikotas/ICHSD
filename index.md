@@ -160,7 +160,7 @@ u = match to next field
     フレーム内に縞(Combs)がどれだけ含まれるかといった基準で判定しようとすると、どうしても例外が出てきたり、ソース毎に調整し直さなければならなかったりします。<br>
     閾値をなるべく使用せずに済む判定基準を使用することで、閾値の使用を2個(`ythresh`,`mthresh`)までに抑えています。<br>
 <br>
-<ul><li>使用する判定基準</li></ul><br>
+<ul><li>使用する判定基準</li></ul>
 <ol><ol type=1>
 <li>パターンマッチ</li>
     事項で説明<br>
@@ -248,12 +248,12 @@ c/p の並びを記載したパターンリスト<br>
 
 2. CombReduceは、ソースによっては片フィールド字幕を消しきれずに残像が発生することがあります。  
 この場合は、mode=2(`cr=2`)にすることで解消するかもしれません。  
-解消できずに残像が気になる場合は、インターレース解除に切り替え可能です。(`cr=0`)
+解消できずに残像が気になる場合は、インターレース解除に切り替え可能です。(<code>cr=0</code>)<br>
 <br>
 #### 本スクリプト：
 - [ICHSD.avsi](https://github.com/Ikotas/ICHSD/raw/main/ICHSD.avsi)
 
-<br><br>
+<br>
 #### 必須バージョン、プラグイン、スクリプト：
 
 - [AviSynth v3.7.1以降](https://github.com/pinterf/AviSynthPlus)
@@ -267,9 +267,8 @@ c/p の並びを記載したパターンリスト<br>
   - TMM2.dll  
 <p style="padding-left:34px;">
 本プラグインでは縞(Combs)の有無の判定にも使用
-</p>
+</p><br>
 
-<br>
 #### 必須ファイル：
 
 - [ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)  
@@ -284,23 +283,21 @@ c/p の並びを記載したパターンリスト<br>
 
 <div style="padding-left:20px;">
 ※<b>初めにスクリプト内のファイルパスを環境に合わせて書き換える必要があります。</b>
-</div>
+</div><br>
 
-<br>
 #### Decimationを実行するプラグイン：
 <div style="padding-left:20px;">
 ※本スクリプトには含まれません。<br>
 <br>
 特に指定はありませんが、現環境ですと選択肢は少ないため、実質TDecimate一択かと思います。<br>
 <br>
-本プラグインでTDecimateを使用する場合のおすすめ設定
-
-    TDecimate(mode=0,cycleR=1,cycle=5,hint=false)
-
-※`hint=false`は、まれに一致度の値を無視して、本スクリプトが複製したフレームではなく、TFMが判定したフレームを選んでしまう動作を抑制するために指定します。
-
-</div>
+本プラグインでTDecimateを使用する場合のおすすめ設定<br>
 <br>
+    <code>TDecimate(mode=0,cycleR=1,cycle=5,hint=false)</code>
+<br>
+※<code>hint=false</code>は、まれに一致度の値を無視して、本スクリプトが複製したフレームではなく、TFMが判定したフレームを選んでしまう動作を抑制するために指定します。<br>
+</div><br>
+
 #### その他おすすめスクリプト：
 <div style="padding-left:20px;">
 ※本スクリプトには含まれません。<br><br>
@@ -319,23 +316,22 @@ c/p の並びを記載したパターンリスト<br>
   ※現在のAviSynthではConditionalFilterの箇所が要因で動作しないため修正が必要(改良版含む)<br>
 　修正情報自体は転載禁止のため、使用する場合はご自分で探して適用してください。<br>
 <br>
-
 * 修正情報…Avisynthを絶讃ιょぅょ Part32 [無断転載禁止]©2ch.net No.548,571,604
-</div>
+</div><br>
 
-<br>
+
 #### おまけ：
 
 * [Amatsukazeユーザーのための情報](https://github.com/Ikotas/ICHSD/raw/main/HowtorunICHSDonAmatsukaze.txt)
 
-<br>
+
 #### 他の作品
 
 - 25fpsIVTCGuide  
   完全手作業の29.97fps→25fps逆テレシネ(IVTC)ガイド  
 ・[日本語](https://github.com/Ikotas/25fpsIVTCGuide)  ・[English and other languages](https://ikotas-github-io.translate.goog/25fpsIVTCGuide/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en) <span style="font-size:80%;">by Google Translate</span><br>
 
-<br>
+
 #### 更新履歴：
 
     2025.3.21 v1.0 初回リリース
