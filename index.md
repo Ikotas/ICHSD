@@ -15,6 +15,7 @@
 
 
 #### 実装機能：
+
 <b>
 
 1. Decimationで確実に間引かれるための、重複フレームの片方を複製し、もう片方を上書きして置き換える処理
@@ -26,22 +27,27 @@
 4. 縞(Combs)部分の自動除去処理(*1) (処理方法を選択可)
 
 5. 自動処理後に更に残留する縞(Combs)を手動で処理する手段の提供
+
 </b>
 
 <div style="padding-left:20px;">
 
 *1…除去処理自体はCombReduceまたはインターレース解除で実施<br>
 *2…TFM(TIVTC)の用語、本プラグインでは以下を使用(`mode=2`)
+
 </div>
 
 <div style="padding-left:60px;">
+
 p = match to previous field<br>
 c = match to current field<br>
 u = match to next field
+
 </div>
 
 
 #### Syntax and Parameters：
+
 <div style="padding-left:20px;">
 
 ```
@@ -52,6 +58,7 @@ u = match to next field
 ```
 
 </div>
+
 <div style="padding-left:20px;">
 
 ```
