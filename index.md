@@ -3,8 +3,8 @@
 ([English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en)) <span style="font-size:80%;">by Google Translate</span>
 
 #### はじめに：
-
 <div style=padding-left:20px>
+
 埋め込み字幕(Hardsub)を含むインターレースソースをDecimationするために、問題点(後述)を解消して整えるスクリプトです。<br>
 対応するインターレースソースは、23.976fpsを29.97fpsへテレシネした、PIIPP (プログレッシブ3枚、インターレース2枚の繰り返し、TFMでのフィールドマッチング後のMatch Codesの並びは cppcc )のパターンのみです。<br>
 サンプル試行数は少ないですが、上手く動作しているように見えます。<br>
