@@ -154,9 +154,9 @@ u = match to next field
     フレーム内に縞(Combs)がどれだけ含まれるかといった基準で判定しようとすると、どうしても例外が出てきたり、ソース毎に調整し直さなければならなかったりします。  
     閾値をなるべく使用せずに済む判定基準を使用することで、閾値の使用を2個(`ythresh`,`mthresh`)までに抑えています。  
 
-* 使用する判定基準  
+    * 使用する判定基準  
 <div style="padding-left:20px;">
-<ol>
+<ol><ol type=1>
 
 <li>パターンマッチ</li>  
     事項で説明<br>
@@ -179,14 +179,14 @@ u = match to next field
    TFMのovr(overrides)機能で、全フレームを強制的に c または p に上書きしたソースを、それぞれCombReduceを適用した状態と比較し、縞(Combs)が含まれるかを確認。<br>  
 ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に従い、CombReduce適用かインターレース解除を行います。<br>  
 
-</ol></div>
+</ol></ol></div>
 
 <div style="padding-left:40px;">
 
-*Mic値…TFM用語、指定した大きさ(本スクリプトでは`blockx=64,blocky=64`)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？
-
+*Mic値…TFM用語、指定した大きさ(本スクリプトでは`blockx=64,blocky=64`)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？<br>
+<br>
 <u>[ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)</u>、<u>[ovrp.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt)</u>  
-    TFMのovr用ファイル  
+    TFMのovr用ファイル<br>  
 
 </div>
 
