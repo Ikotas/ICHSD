@@ -158,25 +158,25 @@ u = match to next field
 <div style="padding-left:20px;">
 
 1. パターンマッチ<br>  
-   事項で説明<br>
+    事項で説明<br>  
 
 2. `LumaDifference(base,base.Loop(n+1,0,-1).Trim(0,FrameCount()-1))<ythresh`<br>  
 3. `LumaDifference(base,base.Trim(n,0).Loop(n+1,FrameCount()-1,-1))<ythresh`<br>  
-   現在表示しているフレームと、n個前方(2.)または後方(3.)のフレームを比較し、シーンチェンジがないかを確認。<br>  
-   パターンマッチで使用します。<br>  
-   シーンチェンジがなければパターンに適合、あれば不適合としています。<br>  
+    現在表示しているフレームと、n個前方(2.)または後方(3.)のフレームを比較し、シーンチェンジがないかを確認。<br>  
+    パターンマッチで使用します。<br>  
+    シーンチェンジがなければパターンに適合、あれば不適合としています。<br>  
 <br>  
 4. `YDifferenceFromPrevious()>ythresh`<br>  
-   一つ手前のフレームと比較し、シーンチェンジがないかを確認。<br>  
-   シーンチェンジがあれば、5.に進み、なければ6.に進みます。<br>  
+    一つ手前のフレームと比較し、シーンチェンジがないかを確認。<br>  
+    シーンチェンジがあれば、5.に進み、なければ6.に進みます。<br>  
 <br>  
 5. `propGetInt(ovr(p/c),"TFMMics",index=(0/1))>mthresh`<br>  
-   現在のフレームのMic値(*)を取得し、インターレース解除を行うかを確認。<br>  
-   閾値超はインターレース解除、閾値以下は6.に進みます。<br>  
+    現在のフレームのMic値(*)を取得し、インターレース解除を行うかを確認。<br>  
+    閾値超はインターレース解除、閾値以下は6.に進みます。<br>  
 <br>  
 6. `LumaDifference(ovr(p/c),ovr(p/c).CombReduce())`<br>  
-   TFMのovr(overrides)機能で、全フレームを強制的に c または p に上書きしたソースを、それぞれCombReduceを適用した状態と比較し、縞(Combs)が含まれるかを確認。<br>  
-ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に従い、CombReduce適用かインターレース解除を行います。<br>  
+    TFMのovr(overrides)機能で、全フレームを強制的に c または p に上書きしたソースを、それぞれCombReduceを適用した状態と比較し、縞(Combs)が含まれるかを確認。<br>  
+    ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に従い、CombReduce適用かインターレース解除を行います。<br>  
 
 </div>
 
