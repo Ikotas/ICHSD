@@ -1,4 +1,4 @@
-# ICHSD<font size=5> - Clean up the Hardsub Sources for Decimation</font><br><font size=4>Created by Ikotas</font>
+# ICHSD<br><font size=5>Clean up the Hardsub Sources for Decimation</font><br><font size=4>Created by Ikotas</font>
 
 ## Description
 <div style=padding-left:20px>
