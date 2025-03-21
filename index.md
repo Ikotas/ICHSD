@@ -184,10 +184,11 @@ ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に�
 
 *Mic値…TFM用語、指定した大きさ(本スクリプトでは<code>blockx=64,blocky=64</code>)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？<br>
 
-</div>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>[ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)</u>、<u>[ovrp.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt)</u>  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TFMのovr用ファイル<br>  
+<a href="https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt"><u>ovrc.txt</u></a>、<a href="https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt"><u>ovrp.txt</u></a>  
+TFMのovr用ファイル<br>  
+
+</div>
 
 
 4. **パターンマッチによる判定**
