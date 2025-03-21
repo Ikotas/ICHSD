@@ -31,6 +31,8 @@ ICHSDをAmatsukazeで動かす方法
 　なお、AviSynth Neoではなく、AviSynth Plusを使用するため、
 　CUDA関連のプラグインやコマンドは一切動作しません。(エラーで落ちます。)
 　KFMDeintやOnCUDAやその他CUDA Filtersは全て動作しません。
+　ICHSDやその他、AviSynth Neoでは動作しないプラグインやスクリプトを使って、
+　エンコードして貰えればと思います。
 
 準備
 　エンコーダーの実行ファイルと同じフォルダにあるAviSynth.dllが使用されるため、
