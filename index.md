@@ -1,6 +1,6 @@
 ## ICHSD - Clean up the Hardsub Sources for Decimation<br><font size=3>Created by Ikotas</font>
 
-([English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en)) <span style="font-size:80%;">by Google Translate</span><br>
+([English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en)) <span style="font-size:80%;">by Google Translate</span><br><br>
 
 #### はじめに：
 <div style="padding-left:20px;">
@@ -11,8 +11,8 @@
 どなたかのお役に立てば幸いです。<br>
 <br>
 ※たまに出てくる英語部分は、自動翻訳を意識しています。
-</div>
-<br>
+</div><br>
+
 #### 実装機能：
 
 1. **Decimationで確実に間引かれるための、重複フレームの片方を複製し、もう片方を上書きして置き換える処理**  
@@ -36,17 +36,18 @@
 p = match to previous field<br>
 c = match to current field<br>
 u = match to next field
-</div>
+</div><br>
 
-<br>
 #### Syntax and Parameters：
 
     ICHSD(clip input, int "cr", float "ythresh", int "mthresh", bool "manual",
         int "cr1f", int "cr1t", int "cr2f", int "cr2t", int "cr3f", int "cr3t",
         int "cr4f", int "cr4t", int "cr5f", int "cr5t", bool "show", int "ml",
         bool "ulp", int "suby")
+
 <div style="padding-left:60px;">
 </div>
+<pre tlanslate="yes">
 
     cr       片フィールド字幕と残留縞(Combs)の処理方法を選択。
              deint(インターレース解除)はTFM(pp=3)で実行。
@@ -112,7 +113,8 @@ u = match to next field
 
              defalut：0 (int)
 
-<br>
+</pre><br>
+
 #### 説明：
 
 <ol>
