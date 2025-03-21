@@ -25,7 +25,6 @@
 4. **縞(Combs)部分の自動除去処理(\*1) (処理方法を選択可)**
 
 5. **自動処理後に更に残留する縞(Combs)を手動で処理する手段の提供**
-</b>
 
 <div style="padding-left:20px;">
 
@@ -44,12 +43,14 @@ u = match to next field
 #### Syntax and Parameters：
 <div style="padding-left:20px;">
 
+
     ICHSD(clip input, int "cr", float "ythresh", int "mthresh", bool "manual",
         int "cr1f", int "cr1t", int "cr2f", int "cr2t", int "cr3f", int "cr3t",
         int "cr4f", int "cr4t", int "cr5f", int "cr5t", bool "show", int "ml",
         bool "ulp", int "suby")
 </div>
 <div style="padding-left:20px;">
+
 
     cr       片フィールド字幕と残留縞(Combs)の処理方法を選択。
              deint(インターレース解除)はTFM(pp=3)で実行。
