@@ -47,7 +47,6 @@ u = match to next field
 
 <div style="padding-left:60px;">
 </div>
-<code tlanslate="yes">
 
     cr       片フィールド字幕と残留縞(Combs)の処理方法を選択。
              deint(インターレース解除)はTFM(pp=3)で実行。
@@ -112,7 +111,8 @@ u = match to next field
                正しく判定処理が行われなくなるためご注意ください。
 
              defalut：0 (int)
-</code><br>
+
+<br>
 
 #### 説明：
 
