@@ -240,7 +240,7 @@ c/p の並びを記載したパターンリスト<br>
     表示範囲をフレーム番号で指定するため、残った縞(Combs)を探して特定する必要があります。<br>
     どうしても気になった箇所に、手動で設定して貰えればと思います。(<code>manual=true</code>)<br>
     表示範囲は5パターン設定可能です。<br>
-</ol>
+</ol><br>
 
 #### 補足：
 
@@ -249,11 +249,11 @@ c/p の並びを記載したパターンリスト<br>
 2. CombReduceは、ソースによっては片フィールド字幕を消しきれずに残像が発生することがあります。  
 この場合は、mode=2(`cr=2`)にすることで解消するかもしれません。  
 解消できずに残像が気になる場合は、インターレース解除に切り替え可能です。(`cr=0`)
-
+<br>
 
 #### 本スクリプト：
 - [ICHSD.avsi](https://github.com/Ikotas/ICHSD/raw/main/ICHSD.avsi)
-
+<br>
 
 #### 必須バージョン、プラグイン、スクリプト：
 
@@ -268,8 +268,7 @@ c/p の並びを記載したパターンリスト<br>
   - TMM2.dll  
 <p style="padding-left:34px;">
 本プラグインでは縞(Combs)の有無の判定にも使用
-</p>
-
+</p><br>
 
 #### 必須ファイル：
 
@@ -285,8 +284,7 @@ c/p の並びを記載したパターンリスト<br>
 
 <div style="padding-left:20px;">
 ※<b>初めにスクリプト内のファイルパスを環境に合わせて書き換える必要があります。</b>
-</div>
-
+</div><br>
 
 #### Decimationを実行するプラグイン：
 <div style="padding-left:20px;">
@@ -299,8 +297,7 @@ c/p の並びを記載したパターンリスト<br>
     <code>TDecimate(mode=0,cycleR=1,cycle=5,hint=false)</code>
 <br>
 ※<code>hint=false</code>は、まれに一致度の値を無視して、本スクリプトが複製したフレームではなく、TFMが判定したフレームを選んでしまう動作を抑制するために指定します。<br>
-</div>
-
+</div><br>
 
 #### その他おすすめスクリプト：
 <div style="padding-left:20px;">
@@ -321,20 +318,19 @@ c/p の並びを記載したパターンリスト<br>
 　修正情報自体は転載禁止のため、使用する場合はご自分で探して適用してください。<br>
 <br>
 * 修正情報…Avisynthを絶讃ιょぅょ Part32 [無断転載禁止]©2ch.net No.548,571,604
-</div>
-
+</div><br>
 
 #### おまけ：
 
 * [Amatsukazeユーザーのための情報](https://github.com/Ikotas/ICHSD/raw/main/HowtorunICHSDonAmatsukaze.txt)
-
+<br>
 
 #### 他の作品
 
 - 25fpsIVTCGuide  
   完全手作業の29.97fps→25fps逆テレシネ(IVTC)ガイド  
 ・[日本語](https://github.com/Ikotas/25fpsIVTCGuide)  ・[English and other languages](https://ikotas-github-io.translate.goog/25fpsIVTCGuide/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en) <span style="font-size:80%;">by Google Translate</span><br>
-
+<br>
 
 #### 更新履歴：
 
