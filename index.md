@@ -12,7 +12,7 @@
 <br>
 ※たまに出てくる英語部分は、自動翻訳を意識しています。
 </div>
-<br><br>
+<br>
 #### 実装機能：
 
 1. **Decimationで確実に間引かれるための、重複フレームの片方を複製し、もう片方を上書きして置き換える処理**  
@@ -38,7 +38,7 @@ c = match to current field<br>
 u = match to next field
 </div>
 
-
+<br>
 #### Syntax and Parameters：
 
     ICHSD(clip input, int "cr", float "ythresh", int "mthresh", bool "manual",
@@ -112,7 +112,7 @@ u = match to next field
 
              defalut：0 (int)
 
-<br><br>
+<br>
 #### 説明：
 
 <ol>
@@ -241,7 +241,7 @@ c/p の並びを記載したパターンリスト<br>
     どうしても気になった箇所に、手動で設定して貰えればと思います。(<code>manual=true</code>)<br>
     表示範囲は5パターン設定可能です。<br>
 </ol>
-<br><br>
+<br>
 #### 補足：
 
 1. 1920x1080の実写ソースで調整・確認しましたので、その他の解像度やアニメ等では閾値の変更が必要になるかもしれません。
@@ -249,7 +249,7 @@ c/p の並びを記載したパターンリスト<br>
 2. CombReduceは、ソースによっては片フィールド字幕を消しきれずに残像が発生することがあります。  
 この場合は、mode=2(`cr=2`)にすることで解消するかもしれません。  
 解消できずに残像が気になる場合は、インターレース解除に切り替え可能です。(`cr=0`)
-<br><br>
+<br>
 #### 本スクリプト：
 - [ICHSD.avsi](https://github.com/Ikotas/ICHSD/raw/main/ICHSD.avsi)
 
@@ -269,7 +269,7 @@ c/p の並びを記載したパターンリスト<br>
 本プラグインでは縞(Combs)の有無の判定にも使用
 </p>
 
-<br><br>
+<br>
 #### 必須ファイル：
 
 - [ovrc.txt](https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt)  
@@ -286,7 +286,7 @@ c/p の並びを記載したパターンリスト<br>
 ※<b>初めにスクリプト内のファイルパスを環境に合わせて書き換える必要があります。</b>
 </div>
 
-<br><br>
+<br>
 #### Decimationを実行するプラグイン：
 <div style="padding-left:20px;">
 ※本スクリプトには含まれません。<br>
@@ -300,7 +300,7 @@ c/p の並びを記載したパターンリスト<br>
 ※`hint=false`は、まれに一致度の値を無視して、本スクリプトが複製したフレームではなく、TFMが判定したフレームを選んでしまう動作を抑制するために指定します。
 
 </div>
-<br><br>
+<br>
 #### その他おすすめスクリプト：
 <div style="padding-left:20px;">
 ※本スクリプトには含まれません。<br><br>
@@ -323,19 +323,19 @@ c/p の並びを記載したパターンリスト<br>
 * 修正情報…Avisynthを絶讃ιょぅょ Part32 [無断転載禁止]©2ch.net No.548,571,604
 </div>
 
-<br><br>
+<br>
 #### おまけ：
 
 * [Amatsukazeユーザーのための情報](https://github.com/Ikotas/ICHSD/raw/main/HowtorunICHSDonAmatsukaze.txt)
 
-<br><br>
+<br>
 #### 他の作品
 
 - 25fpsIVTCGuide  
   完全手作業の29.97fps→25fps逆テレシネ(IVTC)ガイド  
 ・[日本語](https://github.com/Ikotas/25fpsIVTCGuide)  ・[English and other languages](https://ikotas-github-io.translate.goog/25fpsIVTCGuide/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en) <span style="font-size:80%;">by Google Translate</span><br>
 
-<br><br>
+<br>
 #### 更新履歴：
 
     2025.3.21 v1.0 初回リリース
