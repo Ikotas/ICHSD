@@ -181,14 +181,14 @@ u = match to next field
 <li><code>LumaDifference(ovr(p/c),ovr(p/c).CombReduce())</code></li>
    TFMのovr(overrides)機能で、全フレームを強制的に c または p に上書きしたソースを、それぞれCombReduceを適用した状態と比較し、縞(Combs)が含まれるかを確認。<br>
 ovrcとovrpのどちらにも差分が存在した場合は、<code>cr</code>の設定に従い、CombReduce適用かインターレース解除を行います。<br>
-</ol></ol></div>
+</ol></ol>
 <div style="padding-left:34px;">
 <br>
 *Mic値…TFM用語、指定した大きさ(本スクリプトでは<code>blockx=64,blocky=64</code>)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？<br>
 <br>
 <a href="https://github.com/Ikotas/ICHSD/raw/main/ovrc.txt"><u>ovrc.txt</u></a>、<a href="https://github.com/Ikotas/ICHSD/raw/main/ovrp.txt"><u>ovrp.txt</u></a><br>
 TFMのovr用ファイル<br>
-<br>
+<br></div>
 <li>パターンマッチによる判定</li>
 <br>
    本スクリプトが対象とするインターレースソースの5フレーム毎のMatch Codesの配置は、原則次のパターンの何れかです。<br>
