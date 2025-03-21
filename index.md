@@ -3,37 +3,38 @@
 ([English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en)) <span style="font-size:80%;">by Google Translate</span>
 
 #### はじめに：
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
 
 埋め込み字幕(Hardsub)を含むインターレースソースをDecimationするために、問題点(後述)を解消して整えるスクリプトです。<br>
 対応するインターレースソースは、23.976fpsを29.97fpsへテレシネした、PIIPP (プログレッシブ3枚、インターレース2枚の繰り返し、TFMでのフィールドマッチング後のMatch Codesの並びは cppcc )のパターンのみです。<br>
 サンプル試行数は少ないですが、上手く動作しているように見えます。<br>
 どなたかのお役に立てば幸いです。<br>
-<br>
-※たまに出てくる英語部分は、自動翻訳を意識しています。  
+<bt><br>
+※たまに出てくる英語部分は、自動翻訳を意識しています。
 </div>
 
 
-#### 実装機能：  
+#### 実装機能：
+<b>
 
-1. **Decimationで確実に間引かれるための、重複フレームの片方を複製し、もう片方を上書きして置き換える処理**
+1. Decimationで確実に間引かれるための、重複フレームの片方を複製し、もう片方を上書きして置き換える処理
 
-2. **片フィールド字幕の除去(\*1) (処理方法を選択可)**
+2. 片フィールド字幕の除去(*1) (処理方法を選択可)
 
-3. **パターンマッチによるMatch Code(\*2)判定**
+3. パターンマッチによるMatch Code(*2)判定
 
-4. **縞(Combs)部分の自動除去処理(\*1) (処理方法を選択可)**
+4. 縞(Combs)部分の自動除去処理(*1) (処理方法を選択可)
 
-5. **自動処理後に更に残留する縞(Combs)を手動で処理する手段の提供**
+5. 自動処理後に更に残留する縞(Combs)を手動で処理する手段の提供
+</b>
 
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
 
 *1…除去処理自体はCombReduceまたはインターレース解除で実施<br>
 *2…TFM(TIVTC)の用語、本プラグインでは以下を使用(`mode=2`)
 </div>
 
-<div style="padding-left:60px;">
-
+<div style=padding-left:60px>
 p = match to previous field<br>
 c = match to current field<br>
 u = match to next field
@@ -41,11 +42,14 @@ u = match to next field
 
 
 #### Syntax and Parameters：
+<div style=padding-left:20px>
 
-`ICHSD(clip input, int "cr", float "ythresh", int "mthresh", bool "manual",
+    ICHSD(clip input, int "cr", float "ythresh", int "mthresh", bool "manual",
         int "cr1f", int "cr1t", int "cr2f", int "cr2t", int "cr3f", int "cr3t",
         int "cr4f", int "cr4t", int "cr5f", int "cr5t", bool "show", int "ml",
-        bool "ulp", int "suby")`
+        bool "ulp", int "suby")
+</div>
+<div style=padding-left:20px>
 
     cr       片フィールド字幕と残留縞(Combs)の処理方法を選択。
              deint(インターレース解除)はTFM(pp=3)で実行。
@@ -111,6 +115,8 @@ u = match to next field
 
              defalut：0 (int)
 
+</div>
+
 
 #### 説明：
 
@@ -153,30 +159,34 @@ u = match to next field
     フレーム内に縞(Combs)がどれだけ含まれるかといった基準で判定しようとすると、どうしても例外が出てきたり、ソース毎に調整し直さなければならなかったりします。  
     閾値をなるべく使用せずに済む判定基準を使用することで、閾値の使用を2個(`ythresh`,`mthresh`)までに抑えています。  
 
-    * 使用する判定基準  
+* 使用する判定基準  
 
-        1. パターンマッチ  
-          事項で説明  
+<div style=padding-left:20px>
 
-        2. `LumaDifference(base,base.Loop(n+1,0,-1).Trim(0,FrameCount()-1))<ythresh`  
-        3. `LumaDifference(base,base.Trim(n,0).Loop(n+1,FrameCount()-1,-1))<ythresh`  
-    現在表示しているフレームと、n個前方(2.)または後方(3.)のフレームを比較し、シーンチェンジがないかを確認。  
-    パターンマッチで使用します。  
-    シーンチェンジがなければパターンに適合、あれば不適合としています。  
+1. パターンマッチ  
+   事項で説明
 
-        4. `YDifferenceFromPrevious()>ythresh`  
-            一つ手前のフレームと比較し、シーンチェンジがないかを確認。  
-            シーンチェンジがあれば、e.に進み、なければf.に進みます。  
+2. `LumaDifference(base,base.Loop(n+1,0,-1).Trim(0,FrameCount()-1))<ythresh`  
+3. `LumaDifference(base,base.Trim(n,0).Loop(n+1,FrameCount()-1,-1))<ythresh`  
+   現在表示しているフレームと、n個前方(2.)または後方(3.)のフレームを比較し、シーンチェンジがないかを確認。  
+   パターンマッチで使用します。  
+   シーンチェンジがなければパターンに適合、あれば不適合としています。
 
-        5. `propGetInt(ovr(p/c),"TFMMics",index=(0/1))>mthresh`  
-            現在のフレームのMic値(*)を取得し、インターレース解除を行うかを確認。  
-            閾値超はインターレース解除、閾値以下はf.に進みます。  
+4. `YDifferenceFromPrevious()>ythresh`  
+   一つ手前のフレームと比較し、シーンチェンジがないかを確認。  
+   シーンチェンジがあれば、5.に進み、なければ6.に進みます。  
 
-        6. `LumaDifference(ovr(p/c),ovr(p/c).CombReduce())`  
-            TFMのovr(overrides)機能で、全フレームを強制的に c または p に上書きしたソースを、それぞれCombReduceを適用した状態と比較し、縞(Combs)が含まれるかを確認。  
-            ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に従い、CombReduce適用かインターレース解除を行います。  
+5. `propGetInt(ovr(p/c),"TFMMics",index=(0/1))>mthresh`  
+   現在のフレームのMic値(*)を取得し、インターレース解除を行うかを確認。  
+   閾値超はインターレース解除、閾値以下は6.に進みます。  
 
-<div style="padding-left:40px;">
+6. `LumaDifference(ovr(p/c),ovr(p/c).CombReduce())`  
+   TFMのovr(overrides)機能で、全フレームを強制的に c または p に上書きしたソースを、それぞれCombReduceを適用した状態と比較し、縞(Combs)が含まれるかを確認。  
+ovrcとovrpのどちらにも差分が存在した場合は、`cr`の設定に従い、CombReduce適用かインターレース解除を行います。  
+
+</div>
+
+<div style=padding-left:40px>
 
 *Mic値…TFM用語、指定した大きさ(本スクリプトでは`blockx=64,blocky=64`)の枠内にどれだけ縞(Combs)が含まれるかを表した指標、何の略？
 
@@ -190,7 +200,7 @@ u = match to next field
    本スクリプトが対象とするインターレースソースの5フレーム毎のMatch Codesの配置は、原則以下のパターンの何れかです。  
 
 </div>
-<div style="padding-left:80px;">
+<div style=padding-left:80px>
 
 ppccc  
 cppcc  
@@ -199,7 +209,7 @@ cccpp
 pcccp  
 
 </div>
-<div style="padding-left:28px;">
+<div style=padding-left:28px>
 
 しかし、実際には、カット編集・CM分断による周期変化や29.97fpsのシーンやTFMのフィールドマッチング処理等の要因により、様々な配置パターンとなります。  
 単純にはMatch Codeの特定はできないため、複数のパターンマッチを用いて、精度を高めています。
@@ -208,7 +218,7 @@ pcccp
 
 * 使用するパターンマッチ
 
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
 
 1. 現在のフレームの前後2個ずつMatch Codeを確認  
    前後のフレームのMatch Codeを確認し、上記の原則の配置に当てはめることで、現在のフレームのMatch Codeを推測します。  
@@ -216,7 +226,7 @@ pcccp
    c と推測される場合は、隣接するフレームが p の場合は基本的に2.に進み、隣接するフレームがどちらも c の場合は3.に進みます。  
 
 </div>
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
 
 2. 現在のフレームの前後最大31フレーム先まで pp の並びを確認  
    前方後方のppの配置をパターンと照合して、現在のフレームのMatch Codeを決定します。  
@@ -230,7 +240,7 @@ pcccp
 
 </div>
 
-<div style="padding-left:40px;">
+<div style=padding-left:40px>
 
 <u>[ICHSD_patternlist.txt](https://github.com/Ikotas/ICHSD/raw/main/ICHSD_patternlist.txt)</u>  
 c/p の並びを記載したパターンリスト
@@ -280,7 +290,7 @@ c/p の並びを記載したパターンリスト
   - masktools2.dll
   - TDeint.dll
   - TMM2.dll  
-<p style="padding-left:34px;">
+<p style=padding-left:34px>
 本プラグインでは縞(Combs)の有無の判定にも使用
 </p>
 
@@ -297,13 +307,13 @@ c/p の並びを記載したパターンリスト
 
 - [ICHSD_patternlist.txt](https://github.com/Ikotas/ICHSD/raw/main/ICHSD_patternlist.txt)
 
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
 ※<b>初めにスクリプト内のファイルパスを環境に合わせて書き換える必要があります。</b>
 </div>
 
 
 #### Decimationを実行するプラグイン：
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
 ※本スクリプトには含まれません。<br>
 <br>
 特に指定はありませんが、現環境ですと選択肢は少ないため、実質TDecimate一択かと思います。<br>
@@ -317,7 +327,7 @@ c/p の並びを記載したパターンリスト
 </div>
 
 #### その他おすすめスクリプト：
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
 ※本スクリプトには含まれません。<br><br>
 </div>
 
@@ -330,7 +340,7 @@ c/p の並びを記載したパターンリスト
   - variableblur.dll
   - warpsharp.dll  
 
-<div style="padding-left:20px;">
+<div style=padding-left:20px>
   ※現在のAviSynthではConditionalFilterの箇所が要因で動作しないため修正が必要(改良版含む)<br>
 　修正情報自体は転載禁止のため、使用する場合はご自分で探して適用してください。<br>
 <br>
