@@ -30,7 +30,7 @@ ICHSD is a script for AviSynth that cleans up the hardsub sources for decimation
 ## Detailed description
 <div style=padding-left:20px>
 
-[Japanese](https://ikotas-github-io/ICHSD/)
+[Japanese](https://ikotas.github.io/ICHSD/)
 
 [English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en) <span style="font-size:80%;">by Google Translate</span>
 </div>
