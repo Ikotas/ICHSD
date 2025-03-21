@@ -1,6 +1,6 @@
 ## ICHSD - Clean up the Hardsub Sources for Decimation<br><font size=3>Created by Ikotas</font>
 
-([English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en)) <span style="font-size:80%;">by Google Translate</span>
+([English and other languages](https://ikotas-github-io.translate.goog/ICHSD/?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=en)) <span style="font-size:80%;">by Google Translate</span><br>
 
 #### はじめに：
 <div style="padding-left:20px;">
