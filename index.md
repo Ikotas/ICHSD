@@ -249,11 +249,11 @@ c/p の並びを記載したパターンリスト<br>
 2. CombReduceは、ソースによっては片フィールド字幕を消しきれずに残像が発生することがあります。  
 この場合は、mode=2(`cr=2`)にすることで解消するかもしれません。  
 解消できずに残像が気になる場合は、インターレース解除に切り替え可能です。(`cr=0`)
-<br>
+<br><br>
 
 #### 本スクリプト：
 - [ICHSD.avsi](https://github.com/Ikotas/ICHSD/raw/main/ICHSD.avsi)
-<br>
+<br><br>
 
 #### 必須バージョン、プラグイン、スクリプト：
 
@@ -323,7 +323,7 @@ c/p の並びを記載したパターンリスト<br>
 #### おまけ：
 
 * [Amatsukazeユーザーのための情報](https://github.com/Ikotas/ICHSD/raw/main/HowtorunICHSDonAmatsukaze.txt)
-<br>
+<br><br>
 
 #### 他の作品
 
