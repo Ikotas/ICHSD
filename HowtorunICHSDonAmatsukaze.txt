@@ -103,3 +103,10 @@ sed-windows
 (https://github.com/mbuilov/sed-windows)
 iconv and gettext binaries for Windows
 (https://github.com/mlocati/gettext-iconv-windows)
+
+※補足
+Avisynth Neoで動作しないプラグインを読み込もうとするとエラーとなるため、
+プロファイルのカスタムフィルタではダミーファイルを設定しておき、
+上記のサンプル内のsedで文字列変換している部分に続けて、
+avsファイル内でImportするファイル名を書き換えて貰えればと思います。
+【PATH】sed-4.9-x64.exe -i "s/ダミーファイル名(の一部)/実際に使用したいファイル名(の一部)/g" "%tmpavsorg%"
