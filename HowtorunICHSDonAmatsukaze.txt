@@ -79,9 +79,9 @@ ICHSDをAmatsukazeで動かす方法
 ----------
 @echo off
 
-set tmpavsname=vfilter%AMT_TEMP_AVS:~-17,-7%
-set tmpavsorg=%AMT_TEMP_DIR%\%tmpavsname%.avs
-set tmpavs=%AMT_TEMP_DIR%\%tmpavsname%_.avs
+set tmpavsfn=vfilter%AMT_TEMP_AVS:~-17,-7%
+set tmpavsorg=%AMT_TEMP_DIR%\%tmpavsfn%.avs
+set tmpavs=%AMT_TEMP_DIR%\%tmpavsfn%_.avs
 
 【PATH】sed-4.9-x64.exe -i "s/\\/\//g" "%tmpavsorg%"
 【PATH】sed-4.9-x64.exe -i "s/ClearAutoloadDirs()/# ClearAutoloadDirs()/g" "%tmpavsorg%"
